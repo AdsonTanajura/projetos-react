@@ -1,13 +1,24 @@
 type TimerControlsProps = {
   onStart: () => void;
   onStop: () => void;
+  timerOn: boolean;
+  reset: () => void;
+  onlap: () => void;
 };
 
-const TimerControls = ({ onStart, onStop }: TimerControlsProps) => {
+const TimerControls = ({
+  onStart,
+  onStop,
+  timerOn,
+  reset,
+  onlap,
+}: TimerControlsProps) => {
   return (
     <div className="timer-controls">
-      <button onClick={onStart}>Iniciar</button>
-      <button onClick={onStop}>Zerar</button>
+      {!timerOn && <button onClick={onStart}>Iniciar</button>}
+      {timerOn && <button onClick={onStop}>Parar</button>}
+      {timerOn && <button onClick={onlap}>Volta</button>}
+      <button onClick={reset}>Zerar</button>
     </div>
   );
 };
