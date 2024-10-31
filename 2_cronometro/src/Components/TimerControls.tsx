@@ -1,5 +1,10 @@
 const TimerControls = () => {
-  return <div>Controls</div>;
+  return (
+    <div className="timer-controls">
+      <button>Iniciar</button>
+      <button>Zerar</button>
+    </div>
+  );
 };
 
 export default TimerControls;
