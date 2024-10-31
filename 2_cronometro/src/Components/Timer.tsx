@@ -18,15 +18,16 @@ const Timer = () => {
     return `${minutos}:${seconds}:${senSenconds}`;
   };
 
-  const startTimer = (interval) => {
+  const startTimer = () => {
     return setInterval(() => {
       setMlSeconds((previMlSeconds) => previMlSeconds + 10);
     }, 10);
   };
 
-  const stopTimer = (interval) => {
-    clearInterval(interval);
-    return interval;
+  const stopTimer = (interval: number | null) => {
+    if (interval) {
+      clearInterval(interval);
+    }
   };
 
   const resetTimer = () => {
@@ -40,15 +41,16 @@ const Timer = () => {
   };
 
   useEffect(() => {
-    let interval = null;
+    let interval: number | null = null;
     if (timerOn) {
-      interval = startTimer(interval);
+      interval = startTimer();
     } else {
-      interval = stopTimer(interval);
+      stopTimer(interval);
     }
 
     return () => stopTimer(interval);
   }, [timerOn]);
+
   return (
     <div className="timer-container">
       <TimerDisplay timer={formatTime()} />
@@ -59,7 +61,7 @@ const Timer = () => {
         onStart={() => setTimerOn(true)}
         onStop={() => setTimerOn(false)}
       />
-      <LapList />
+      <LapList laps={laps} />
     </div>
   );
 };
