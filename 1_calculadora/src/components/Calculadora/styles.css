@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  background-color: bisque;
+  max-width: 200px;
+  height: auto;
+}
+.up-display {
+  display: flex;
+  justify-content: end;
+  padding: 10px 10px 20px 10px;
+  border: 1px solid black;
+  background-color: azure;
+
+  span {
+    font-size: 15px;
+  }
+}
+
+.down-display {
+  display: flex;
+  justify-content: end;
+  padding: 10px 10px 40px 10px;
+  background-color: azure;
+
+  border: 1px solid black;
+
+  span {
+    font-size: 15px;
+  }
+}
+
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  max-width: 40px;
+  width: 40px;
+  max-height: 40px;
+  height: 40px;
+}
